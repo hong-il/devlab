@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<article class="post" th:fragment="createForm(user, categories)" th:object="${user}">
+    <header>
+        <div class="title">
+            <h2>Create</h2>
+        </div>
+        <div class="meta">
+            <time class="published" datetime="2020-1-4">January 4, 2020</time>
+            <a href="#" class="author">
+                <span class="name" th:text="*{name}"></span>
+                <img th:src="*{picture}" alt=""/>
+            </a>
+        </div>
+    </header>
+
+    <section>
+        <div class="row gtr-uniform">
+            <div class="col-4 col-12-small">
+                <input type="radio" id="normal" name="categoryRadio"
+                       th:onchange="|javascript:normal(checked)|" checked>
+                <label for="normal">Normal</label>
+            </div>
+            <div class="col-4 col-12-small">
+                <input type="radio" id="notify" name="categoryRadio"
+                       th:onchange="|javascript:notify(checked)|">
+                <label for="notify">Notify</label>
+            </div>
+            <div class="col-6 col-12-xsmall">
+                <input type="text" name="createTitle" id="createTitle" value="" placeholder="Title"/>
+            </div>
+            <div class="col-6 col-12-xsmall">
+                <input type="text" name="createSubtitle" id="createSubtitle" value="" placeholder="Subtitle"/>
+            </div>
+            <div class="col-12" id="category">
+                <div class="col-12" id="categorySelect">
+                    <select name="demo-category" id="createCategory" th:onchange="directInput(value)">
+                        <option value="">- Category -</option>
+                        <option value="1">Direct input</option>
+                        <option th:each="category : ${categories}" th:text="${category}" th:value="${category}"></option>
+                    </select>
+                </div>
+                <div class="col-12" id="categoryInput" style="display: none">
+                    <input type="text" name="categoryText" id="categoryText" value="" placeholder="Category"/>
+                </div>
+            </div>
+            <div class="col-6 col-12-small">
+                <input type="checkbox" id="demo-copy" name="demo-copy">
+                <label for="demo-copy">Email me a copy</label>
+            </div>
+            <div class="col-6 col-12-small">
+                <input type="checkbox" id="demo-human" name="demo-human" checked>
+                <label for="demo-human">Not a robot</label>
+            </div>
+            <div class="col-12">
+                <textarea name="createContent" id="createContent" placeholder="Content"
+                          rows="12"></textarea>
+            </div>
+            <div class="col-12">
+                <ul class="actions">
+                    <li><input type="button" th:onclick="|javascript:save()|" value="Upload"/></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</article>
+</html>

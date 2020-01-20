@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<ul class="actions pagination" th:fragment="pagination(pages, start, last)" th:with="start = ${start}, last = ${last}">
+    <li>
+        <a th:class="${pages.first} ? 'disabled button large previous' : 'button large previous'"
+           th:href="${pages.first} ? '#' : @{/(page = ${pages.getNumber()})}"
+           href="#">Previous Page</a>
+    </li>
+    <li>
+        <a th:class="${pages.last} ? 'disabled button large next' : 'button large next'"
+           th:href="${pages.last} ? '#' : @{/(page = ${pages.getNumber() + 2})}"
+           href="#">Next Page</a>
+    </li>
+</ul>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<section id="menu" th:fragment="isLogin(userEmail)">
+
+    <!-- Search -->
+    <section>
+        <form class="search" method="get" action="#">
+            <input type="text" name="query" placeholder="Search"/>
+        </form>
+    </section>
+
+    <!-- Links -->
+    <section>
+        <ul class="links">
+            <li>
+                <a href="#">
+                    <h3>About KIM</h3>
+                    <p>Resume, Portfolio</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h3>About PARK</h3>
+                    <p>Resume, Portfolio</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/hong-il">
+                    <h3>KIM Github</h3>
+                    <p>All codes have been uploaded</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/Wongok">
+                    <h3>PARK Github</h3>
+                    <p>All codes have been uploaded</p>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Actions -->
+    <section>
+        <ul class="actions stacked" th:if="${userEmail == null}">
+            <li><a href="/oauth2/authorization/google" class="button large fit">Log In</a></li>
+        </ul>
+        <ul class="actions stacked" th:if="${userEmail == 'clroyan01@gmail.com'}">
+            <li><a href="/logout" class="button large fit">Log Out</a></li>
+            <li><a href="/create" class="button large fit">Create</a></li>
+        </ul>
+    </section>
+
+</section>
+</html>

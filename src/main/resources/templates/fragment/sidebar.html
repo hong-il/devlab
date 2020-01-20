@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<section id="sidebar" th:fragment="sidebar(notify, mini)">
+
+    <!-- Intro -->
+    <section id="intro">
+        <a href="#" class="logo"><img src="images/logo.jpg" alt=""/></a>
+        <header>
+            <h2>KIM & PARK</h2>
+            <p>Kim and Park's development lab. All the codes are <a href="http://github.com/hong-il/kim-and-park-devlab">Here</a></p>
+        </header>
+    </section>
+
+    <!-- Mini Posts -->
+    <section>
+        <div class="mini-posts">
+
+            <!-- Mini Post -->
+            <article class="mini-post" th:each="notify : ${notifies}" th:object="${notify}">
+                <header>
+                    <h3><a href="/single" th:text="*{title}"></a></h3>
+                    <time class="published" th:text="*{createdDate}"></time>
+                    <a href="#" class="author"><img th:src="*{user.getPicture()}" alt=""/></a>
+                </header>
+                <a href="/single" class="image"><img src="images/pic04.jpg" alt=""/></a>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Posts List -->
+    <section>
+        <ul class="posts">
+            <li th:each="mini : ${mini}" th:object="${mini}">
+                <article>
+                    <header>
+                        <h3><a href="/single" th:text="*{title}"></a></h3>
+                        <time class="published" th:text="*{createdDate}"></time>
+                    </header>
+                    <a href="/single" class="image"><img src="images/pic08.jpg" alt=""/></a>
+                </article>
+            </li>
+        </ul>
+    </section>
+
+    <!-- About -->
+    <section class="blurb">
+        <h2>About KIM</h2>
+        <p>System engineer at Intertrade, Tokyo</p>
+        <ul class="actions">
+            <li><a href="#" class="button">Learn More</a></li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <section th:replace="/fragment/footer"></section>
+
+</section>
+</html>

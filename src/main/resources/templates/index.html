@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>KIM & PARK</title>
+    <th:block th:replace="/fragment/css"></th:block>
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header -->
+    <header th:replace="/fragment/header"></header>
+
+    <!-- Menu -->
+    <section th:replace="/fragment/menu :: isLogin(userEmail = ${userEmail})"></section>
+
+    <!-- Main -->
+    <div id="main">
+
+        <!-- Posts -->
+        <th:block th:replace="/fragment/posts :: posts(pages = ${pages})"></th:block>
+
+        <!-- Pagination -->
+        <ul th:replace="/fragment/pagination" :: pagination(pages = ${pages)></ul>
+
+    </div>
+
+    <!-- Sidebar -->
+    <section th:replace="/fragment/sidebar :: sidebar(notify = ${notifies}, mini = ${pages})"></section>
+
+</div>
+
+<!-- Scripts -->
+<th:block th:replace="/fragment/js"></th:block>
+
+</body>
+</html>

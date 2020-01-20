@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<style>
+    #likes > .icon:before {
+        color: #2ebaae;
+    }
+</style>
+<div th:fragment="posts(pages)">
+    <article class="post" th:each="post : ${pages}" th:object="${post}">
+        <header>
+            <div class="title">
+                <h2><a th:href="@{/post/{id}(id = *{id})}" th:text="*{title}"></a></h2>
+                <p th:text="*{subtitle}"></p>
+            </div>
+            <div class="meta">
+                <time class="published" th:text="*{createdDate}"></time>
+                <a href="#" class="author">
+                    <span class="name" th:text="*{user.getName()}"></span>
+                    <img th:src="*{user.getPicture()}" alt=""/>
+                </a>
+            </div>
+        </header>
+        <a th:href="@{/post/{id}(id = *{id})}" class="image featured"><img src="images/pic01.jpg" alt=""/></a>
+        <p th:text="*{content}"></p>
+        <footer>
+            <ul class="actions">
+                <li><a th:href="@{/post/{id}(id = *{id})}" class="button large">Continue Reading</a></li>
+            </ul>
+            <ul class="stats">
+                <li><a href="#">General</a></li>
+                <li><a href="#" class="icon solid fa-heart" th:text="*{likesSize}"></a></li>
+                <li><a href="#" class="icon solid fa-comment" th:text="*{commentsSize}"></a></li>
+            </ul>
+        </footer>
+    </article>
+</div>
+</html>
