@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div class="row gtr-uniform" th:fragment="commentForm(postId)">
+    <div class="col-6 col-12-small">
+        <input type="checkbox" id="demo-copy" name="demo-copy">
+        <label for="demo-copy">Email me a copy</label>
+    </div>
+    <div class="col-6 col-12-small">
+        <input type="checkbox" id="demo-human" name="demo-human" checked>
+        <label for="demo-human">Not a robot</label>
+    </div>
+    <div class="col-12">
+            <textarea name="demo-message" id="createComment" placeholder="Enter your message"
+                      rows="6"></textarea>
+    </div>
+    <div class="col-12">
+        <ul class="actions" style="margin-bottom: 2em">
+            <li><input type="button" th:onclick="|javascript:commentSave(${postId})|" value="Send Message"/></li>
+            <li><input type="reset" value="Reset"/></li>
+        </ul>
+    </div>
+</div>
+</html>

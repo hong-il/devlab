@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<style>
-    #likes > .icon:before {
-        color: #2ebaae;
-    }
-</style>
 <div th:fragment="posts(pages)">
     <article class="post" th:each="post : ${pages}" th:object="${post}">
         <header>

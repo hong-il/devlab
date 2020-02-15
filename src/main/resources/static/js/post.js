@@ -63,7 +63,7 @@ post = {
             alert('Please try again');
         });
     },
-    deleteById: function (id, totalElements, size, page) {
+    deleteById: function (id) {
         $.ajax({
             url: '/delete',
             type: 'delete',
@@ -71,12 +71,7 @@ post = {
             dataType: 'json',
             contentType: 'application/json; charset=utf-8'
         }).done(function () {
-            if (totalElements % size === 1) {
-                location.href = "/?page=" + page;
-            } else {
-                page++;
-                location.href = "/?page=" + page;
-            }
+            location.href = "../?page=1"
         }).fail(function () {
             alert('Please try again');
         })
@@ -95,8 +90,8 @@ function update(page) {
     post.update(page);
 }
 
-function deleteById(id, totalElements, size, page) {
-    post.deleteById(id, totalElements, size, page);
+function deleteById(id) {
+    post.deleteById(id);
 }
 
 function directInput(value) {

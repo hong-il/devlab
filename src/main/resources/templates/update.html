@@ -6,7 +6,7 @@
 -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="${post.getTitle()}"></title>
+    <title>Create</title>
     <th:block th:replace="/fragment/css"></th:block>
 </head>
 <body class="single is-preload">
@@ -15,7 +15,7 @@
 <div id="wrapper">
 
     <!-- Header -->
-	<header th:replace="/fragment/header"></header>
+    <header th:replace="/fragment/header"></header>
 
     <!-- Menu -->
     <section th:replace="/fragment/menu"></section>
@@ -24,16 +24,17 @@
     <div id="main">
 
         <!-- Post -->
-        <article th:replace="/fragment/post :: post(post = ${post}, userEmail = ${userEmail})"></article>
+        <article th:replace="/fragment/updateForm :: updateForm(user = ${user}, categories = ${categories})"></article>
 
     </div>
 
     <!-- Footer -->
-	<section th:replace="/fragment/footer"></section>
+    <section th:replace="/fragment/footer"></section>
 
 </div>
 
 <!-- Scripts -->
 <th:block th:replace="/fragment/js"></th:block>
+
 </body>
 </html>

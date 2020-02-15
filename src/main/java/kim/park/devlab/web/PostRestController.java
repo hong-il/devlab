@@ -1,6 +1,7 @@
 package kim.park.devlab.web;
 
 import kim.park.devlab.dto.post.PostSaveRequestDto;
+import kim.park.devlab.dto.post.PostUpdateRequestDto;
 import kim.park.devlab.security.dto.LoginUser;
 import kim.park.devlab.security.dto.SessionUser;
 import kim.park.devlab.service.PostService;
@@ -21,16 +22,16 @@ public class PostRestController {
     /*@PostMapping("/find")
     public HeroFindByIdResponseDto HeroFindByIdResponse(@RequestBody Long id) {
         return heroService.HeroFindByIdResponse(id);
-    }
+    }*/
 
     @PutMapping("/update")
-    public Long HeroUpdateRequest(@RequestBody HeroUpdateRequestDto dto) {
-        return heroService.HeroUpdateRequest(dto);
+    public Long HeroUpdateRequest(@RequestBody PostUpdateRequestDto dto) {
+        return postService.PostUpdateRequestDto(dto);
     }
 
     @DeleteMapping("/delete")
-    public Long HeroDeleteByIdRequest(@RequestBody Long id) {
-        heroService.HeroDeleteByIdRequest(id);
+    public Long PostDeleteByIdRequest(@RequestBody Long id) {
+        postService.PostDeleteByIdRequest(id);
         return id;
-    }*/
+    }
 }

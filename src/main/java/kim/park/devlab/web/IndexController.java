@@ -46,7 +46,14 @@ public class IndexController {
     }
 
     @GetMapping("/post/{id}")
-    public String post(Model model, @PathVariable("id") Long id) {
+    public String post(Model model, @PathVariable("id") Long id, @LoginUser SessionUser sessionUser) {
+
+        if(sessionUser != null) {
+            model.addAttribute("userName", sessionUser.getName());
+            model.addAttribute("userEmail", sessionUser.getEmail());
+            model.addAttribute("userPicture", sessionUser.getPicture());
+        }
+
         PostFindByIdResponseDto post = postService.PostFindByIdResponse(id);
         model.addAttribute("post", post);
         return "post";

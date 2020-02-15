@@ -27,7 +27,7 @@ public class PostFindNotifyResponseDto {
     }
 
     public String toStringLocalDateTime(LocalDateTime date) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM D, YYYY", Locale.ENGLISH);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, YYYY", Locale.ENGLISH);
         return Optional.ofNullable(date)
                 .map(formatter::format)
                 .orElse("");

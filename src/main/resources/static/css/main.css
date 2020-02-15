@@ -13,8 +13,7 @@ pre, a, abbr, acronym, address, big, cite,
 code, del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b,
 u, i, center, dl, dt, dd, ol, ul, li, fieldset,
-form, label, legend, table, caption, tbody,
-tfoot, thead, tr, th, td, article, aside,
+form, label, legend, caption, article, aside,
 canvas, details, embed, figure, figcaption,
 footer, header, hgroup, menu, nav, output, ruby,
 section, summary, time, mark, audio, video {
@@ -3085,17 +3084,17 @@ input, select, textarea {
 		}
 
 			table.alt tbody tr td {
-				border: solid 1px rgba(160, 160, 160, 0.3);
+				border: solid 1px transparent;
 				border-left-width: 0;
 				border-top-width: 0;
 			}
 
 				table.alt tbody tr td:first-child {
-					border-left-width: 1px;
+					/*border-left-width: 1px;*/
 				}
 
 			table.alt tbody tr:first-child td {
-				border-top-width: 1px;
+				/*border-top-width: 1px;*/
 			}
 
 			table.alt thead {
@@ -3104,6 +3103,31 @@ input, select, textarea {
 
 			table.alt tfoot {
 				border-top: 0;
+			}
+
+			table.alt td .likes {
+				display: inline-block;
+				font-family: "Raleway", Helvetica, sans-serif;
+				font-size: 0.6em;
+				font-weight: 400;
+				letter-spacing: 0.25em;
+				line-height: 1;
+				text-transform: uppercase;
+			}
+
+			table.alt td img {
+				width: 75px;
+				height: 75px;
+				vertical-align: middle;
+			}
+
+			table.alt .picture {
+				width: 95px;
+				background-color: white;
+			}
+
+			table.alt td .icon:before {
+				margin-right: 0.75em;
 			}
 
 /* Header */

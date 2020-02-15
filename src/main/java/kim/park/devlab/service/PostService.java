@@ -4,11 +4,7 @@ import kim.park.devlab.domain.post.Post;
 import kim.park.devlab.domain.post.PostRepository;
 import kim.park.devlab.domain.user.User;
 import kim.park.devlab.domain.user.UserRepository;
-import kim.park.devlab.dto.post.PostFindAllResponseDto;
-import kim.park.devlab.dto.post.PostFindByIdResponseDto;
-import kim.park.devlab.dto.post.PostFindNotifyResponseDto;
-import kim.park.devlab.dto.post.PostSaveRequestDto;
-import kim.park.devlab.security.dto.LoginUser;
+import kim.park.devlab.dto.post.*;
 import kim.park.devlab.security.dto.SessionUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -17,7 +13,6 @@ import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
-import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -55,15 +50,15 @@ public class PostService {
         return new PostFindByIdResponseDto(post);
     }
 
-    /*@Transactional
-    public Long HeroUpdateRequest(HeroUpdateRequestDto dto) {
-        return heroRepository.save(dto.toEntity()).getId();
+    @Transactional
+    public Long PostUpdateRequestDto(PostUpdateRequestDto dto) {
+        return postRepository.save(dto.toEntity()).getId();
     }
 
     @Transactional
-    public void HeroDeleteByIdRequest(Long id) {
-        heroRepository.deleteById(id);
-    }*/
+    public void PostDeleteByIdRequest(Long id) {
+        postRepository.deleteById(id);
+    }
 
     @Transactional
     @ReadOnlyProperty

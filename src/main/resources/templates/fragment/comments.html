@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<h4>Comments</h4>
+<div class="table-wrapper" th:fragment="comments(comments)">
+    <table class="alt" th:each="comment : ${comments}" th:object="${comment}">
+        <tbody>
+            <tr>
+                <td rowspan="2" class="picture"><img th:src="*{user.getPicture()}"></td>
+                <td><span th:text="*{createdDate}"></span></td>
+                <td width="90px"><a href="#" class="icon solid fa-heart likes" th:text="0"></a></td>
+            </tr>
+            <tr>
+                <td colspan="2"><span th:text="*{content}" style="word-break: break-all"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</html>
